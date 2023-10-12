@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 )
@@ -28,32 +29,22 @@ func main() {
 
 	go startWebServer()
 
-	/*for {
-		fmt.Println("Veuillez sélectionner une option:")
-		fmt.Println("1. Faire une requête sur le serveur spécifié:", specificServer)
-		fmt.Println("2. Récupérer la liste de tous les serveurs COD 1")
-		fmt.Println("3. Quitter")
+	for {
+		fmt.Println("3. Leave")
 		var choice string
 		fmt.Scanln(&choice)
 		switch choice {
 		case "1":
-			status, err := GetServerStatus(specificServer)
-			if err != nil {
-				fmt.Println("Erreur:", err)
-			} else {
-				for key, value := range status {
-					fmt.Printf("%s: %s\n", key, value)
-				}
-			}
+			//
 		case "2":
 			queryAllServers()
 		case "3":
-			fmt.Println("Au revoir!")
+			fmt.Println("Bye")
 			os.Exit(0)
 		default:
 			fmt.Println("Option invalide. Veuillez réessayer.")
 		}
-	}*/
+	}
 }
 
 func startWebServer() {
